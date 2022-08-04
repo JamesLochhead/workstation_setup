@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 git checkout "$(hostname -s)" &>/dev/null || git checkout -b "$(hostname -s)" &>/dev/null
 
 GIT_ROOT="$(git rev-parse --show-toplevel)"
