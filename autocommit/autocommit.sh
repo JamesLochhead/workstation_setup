@@ -4,11 +4,8 @@ GIT_ROOT="$(git rev-parse --show-toplevel)"
 
 main() {
 	if ! is_head_detached && ! is_rebase_in_progress; then
-		if there_are_untracked_files; then
-			echo "untrack"
-		fi
-		if there_are_differences_from_head; then
-			echo "diff"
+		if there_are_untracked_files || there_are_differences_from_head; then
+			git add -A && git commit -m "autocommit" && git push origin "$(hostname -s)"
 		fi
 	fi
 }
