@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-git checkout "$(hostname -s)-$(whoami)" &>/dev/null || git checkout -b "$(hostname -s)-$(whoami)" &>/dev/null
+git checkout "$(hostname -s)_$(whoami)" &>/dev/null || git checkout -b "$(hostname -s)_$(whoami)" &>/dev/null
 
 GIT_ROOT="$(git rev-parse --show-toplevel)"
 
 main() {
 	if ! is_head_detached && ! is_rebase_in_progress; then
 		if there_are_untracked_files || there_are_differences_from_head; then
-			git add -A && git commit -m "autocommit" && git push origin "$(hostname -s)-$(whoami)"
+			git add -A && git commit -m "autocommit" && git push origin "$(hostname -s)_$(whoami)"
 		fi
 	fi
 }
