@@ -1,0 +1,13 @@
+{
+  "diagnostic.displayByAle": true,
+  "snippets.userSnippetsDirectory": "/home/james/Snippets",
+  "git.addGBlameToVirtualText": false,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
+}

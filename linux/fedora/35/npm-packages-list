@@ -1,0 +1,4 @@
+@stoplight/spectral-cli
+prettier
+yarn
+pnpm

@@ -1,0 +1,6 @@
+aws-sam-cli
+virtualenv
+pip
+aws-cdk.core
+pynvim
+checkov

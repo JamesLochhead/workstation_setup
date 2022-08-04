@@ -1,0 +1,8 @@
+[Unit]
+Description=Update Nix daily
+
+[Service]
+ExecStart=/home/james/Git/fedora-35-install/normal-user/systemd-services/nix-update.sh
+
+[Install]
+WantedBy=multi-user.target
