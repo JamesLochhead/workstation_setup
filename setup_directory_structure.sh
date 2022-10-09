@@ -2,24 +2,18 @@
 
 set -Eeuxo pipefail
 
-TARGET_DIR="$HOME"
-
-PERSONAL_GIT_DIR="$TARGET_DIR/Personal.Git"
-WORK_GIT_DIR="$TARGET_DIR/Work.Git"
-OTHER_GIT_DIR="$TARGET_DIR/Other.Git"
+PERSONAL_GIT_DIR="$HOME/Personal.Git"
+WORK_GIT_DIR="$HOME/Work.Git"
+OTHER_GIT_DIR="$HOME/Other.Git"
 BLOG_DIR="$PERSONAL_GIT_DIR/lochhead.me"
-SNIPPETS_DIR="$PERSONAL_GIT_DIR/workstation_setup/snippets"
+SNIPPETS_DIR="$WORKSTATION_SETUP/snippets"
 WORKSPACES_DIR="$PERSONAL_GIT_DIR/workspaces"
-DOTFILES_DIR="$PERSONAL_GIT_DIR/workstation_setup/dotfiles"
-WORKSTATION_SETUP_DIR="$PERSONAL_GIT_DIR/workstation_setup"
 
 main() {
 	directory_setup
 	blog
 	snippets
 	workspaces
-	dotfiles
-	yabp
 	workstation_setup
 }
 
@@ -48,13 +42,8 @@ workspaces() {
 	create_symlink "$PERSONAL_GIT_DIR/workspaces" "$HOME/Workspaces"
 }
 
-dotfiles() {
-	cd "$DOTFILES_DIR"
-	bash ./install.sh "$DOTFILES_DIR"
-}
-
 workstation_setup() {
-	clone_if_not_exists "$WORKSTATION_SETUP_DIR" "git@github.com:JamesLochhead/workstation_setup.git"
+	clone_if_not_exists "$WORKSTATION_SETUP" "git@github.com:JamesLochhead/workstation_setup.git"
 }
 
 clone_if_not_exists() {
