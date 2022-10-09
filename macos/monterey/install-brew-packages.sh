@@ -3,27 +3,67 @@
 set -eEuxo pipefail
 
 main() {
-	brew install --cask brave-browser
-	brew install --cask rectangle
-	brew install --cask firefox
-	brew install --cask vscodium
-	brew install --cask google-chrome
-	brew install --cask spotify
-	brew install bash
-	brew install bash-completion@2
-	brew install --cask iterm2
-	brew install --cask utm
-	brew install lima
-	brew install neovim
-	brew install fswatch
-	brew install findutils
-	brew install fzf
-	brew install git
-	if [[ "$1"== "personal" ]]; then
-		brew install --cask steam
-	elif [[ "$1"== "work" ]]; then
-		brew install --cask slack
+	brew install --cask \
+		brave-browser \
+		rectangle \
+		firefox \
+		google-chrome \
+		spotify \
+		iterm2 \
+		hyperkey \
+		coteditor \
+		vimr \
+		slack
+
+	brew install \
+		bash \
+		bash-completion@2 \
+		neovim \
+		coreutils \
+		awscli \
+		fswatch \
+		findutils \
+		fzf \
+		git \
+		node \
+		ruby \
+		python@3.10 \
+		make \
+		docker \
+		cue \
+		gnu-sed \
+		iproute2mac \
+		lima \
+		shellcheck \
+		unzip \
+		gnu-tar \
+		shfmt \
+		gnu-which \
+		xz \
+		jq \
+		zstd \
+		go \
+		kubernetes-cli \
+		sqlite \
+		grep \
+		lz4 \
+		qemu \
+		helm \
+		lzo \
+		colima \
+		ripgrep \
+		readline \
+		terminal-notifier \
+		yq
+
+	if [[ "$1" == "personal" ]]; then
+		brew install --cask \
+			steam \
+			nvidia-geforce-now \
+			whatsapp \
+			protonmail-bridge
 	fi
+
 }
 
 main "$@"

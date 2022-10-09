@@ -18,12 +18,12 @@ set_text_foreground_color() {
 # 	[[ $MODULE_TRUE_COLOR_ENABLE ]] && source
 # }
 
-[[ $MODULE_USER_TMP_DIRECTORY_ENABLE ]] &&
+[[ $MODULE_USER_TMP_DIRECTORY_ENABLE == true ]] &&
 	source "$YABP_DIRECTORY/modules/user_tmp_directory.sh" &&
 	setup_user_tmp_directory
 
 if command -v fzf &>/dev/null; then
-	[[ $MODULE_RECENT_DIRECTORY_ENABLE ]] &&
+	[[ $MODULE_RECENT_DIRECTORY_ENABLE == true ]] &&
 		source "$YABP_DIRECTORY/modules/recent_directories.sh" &&
 		cd_recent_dirs
 fi
@@ -35,7 +35,7 @@ prompt_command() {
 
 	if command -v fzf &>/dev/null; then
 		source "$YABP_DIRECTORY/modules/recent_directories.sh" &&
-		[[ $MODULE_RECENT_DIRECTORY_ENABLE ]] && record_recent_dirs
+		[[ $MODULE_RECENT_DIRECTORY_ENABLE == enable ]] && record_recent_dirs
 	fi
 
 	if ((ORIGINAL_RETURN_CODE != 0)); then
@@ -102,7 +102,14 @@ prompt_command() {
 	# fi
 	SECOND_LINE=$(set_text_foreground_color ">" "38" "5" "33" true)
 	CURRENT_HOSTNAME=$(set_text_foreground_color "$(hostname -s)" "38" "5" "33" true)
-	PS1="\n$CURRENT_HOSTNAME $CWD$GIT_REPOSITORY$GIT_CHECKED_OUT$GIT_STATUS$CURRENT_GCLOUD_IDENTITY$CURRENT_GCLOUD_PROJECT$AWS_REGION$RETURN_CODE\n$SECOND_LINE "
+
+	# a
+	THE_VENV=""
+	if [[ ! -z "$VENV" ]]; then
+		THE_VENV=" v:$VENV"
+	fi
+
+	PS1="\n$CURRENT_HOSTNAME $CWD$THE_VENV$GIT_REPOSITORY$GIT_CHECKED_OUT$GIT_STATUS$CURRENT_GCLOUD_IDENTITY$CURRENT_GCLOUD_PROJECT$AWS_REGION$RETURN_CODE\n$SECOND_LINE "
 	export PS1
 }
 
