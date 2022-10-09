@@ -20,6 +20,9 @@ alias gl="git log --oneline"
 # kubernetes
 alias kc='kubectl'
 
+# terraform
+alias tf='terraform'
+
 # gpg
 alias gpg-lock="gpgconf --reload gpg-agent"
 
@@ -28,7 +31,6 @@ alias cr='cat "$WORKSTATION_SETUP"/command_reminders | fzf'
 alias cre='nvim -c $ +put_ +startinsert "$WORKSTATION_SETUP"/command_reminders'
 
 # sync workstation_setup iCloud to Git directory
-
 alias workstation_setup_sync='rsync -av --delete --exclude "*.git*" "$WORKSTATION_SETUP" "$HOME/Personal.Git"'
 
 # misc
@@ -48,6 +50,7 @@ alias jy="yq -P '.' "
 alias yj="yq -o=json '.' "
 
 # Basics
+alias start-ssh-agent='eval `ssh-agent` && ssh-add ~/.ssh/id_ed25519'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -61,3 +64,16 @@ if [ -x /usr/bin/dircolors ]; then
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
 fi
+
+# sf-sso
+alias sso-claimable='aws-vault exec sf_sso -- sf-sso claimable'
+alias sso-claim='aws-vault exec sf_sso -- sf-sso claim $(sso-claimable | tail -n +2 | grep -v -- "- " | fzf)'
+alias sso-whoami='aws sts get-caller-identity'
+alias sso-renew='aws-vault exec sf_sso -- sf-sso renew'
+alias sso-reset='aws-vault exec sf_sso -- sf-sso reset'
+alias sso-reset='aws-vault exec sf_sso -- sf-sso reset'
+alias sso-status='aws-vault exec sf_sso -- sf-sso status'
+alias sso-gen-config='aws-vault exec sf_sso -- sf-sso profile'
+alias sso-login='aws-vault login --stdout $(aws-vault list --profiles | fzf) | pbcopy'
+alias sso-login-default='aws-vault login $(aws-vault list --profiles | fzf) | pbcopy'
+alias sso-exec='aws-vault exec $(aws-vault list --profiles | fzf)'

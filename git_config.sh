@@ -13,10 +13,12 @@ git_setup() {
 	git config --global user.signingkey B098DF51A57627121177DC3C180AB694A7EF5FC0
 	git config --global commit.gpgsign true
 	git config --global pull.rebase true
+	#git config --global pull.ff only
 	git config --global merge.tool vimdiff
 	git config --global merge.conflictstyle diff3
 	git config --global mergetool.prompt false
 	git config --global core.editor nvim
+	git config --global diff.colorMoved zebra
 }
 
 git_setup "$@"

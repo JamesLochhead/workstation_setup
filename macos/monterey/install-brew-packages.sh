@@ -13,7 +13,10 @@ main() {
 		hyperkey \
 		coteditor \
 		vimr \
-		slack
+		slack \
+		inkscape \
+		zoom \
+		gimp
 
 	brew install \
 		bash \
@@ -36,6 +39,9 @@ main() {
 		lima \
 		shellcheck \
 		unzip \
+		ipcalc \
+		terraform-lsp \
+		fx \
 		gnu-tar \
 		shfmt \
 		gnu-which \
@@ -61,7 +67,8 @@ main() {
 			steam \
 			nvidia-geforce-now \
 			whatsapp \
-			protonmail-bridge
+			protonmail-bridge \
+			jellyfin-media-player
 	fi
 
 }
