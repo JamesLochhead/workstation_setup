@@ -53,7 +53,7 @@ editor_config() {
 set_options() {
 
 	# turn off bash history
-	set +o history
+	#set +o history
 
 	# update terminal size
 	shopt -s checkwinsize
@@ -68,14 +68,14 @@ set_options() {
 	# shopt -s histappend
 
 	# the maximum number of commands to remember
-	# HISTSIZE=10000
+	HISTSIZE=20
 
 	# the maximum number of lines in the history file
-	# HISTFILESIZE=10000
+	HISTFILESIZE=20
 
 	# don't put duplicate lines or lines starting with space in the history.
 	# See bash(1) for more options
-	HISTCONTROL=ignoreboth
+	#HISTCONTROL=ignoreboth
 }
 
 go_config() {

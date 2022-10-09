@@ -2,6 +2,7 @@
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias icloud='cd "$ICLOUD_HOME"'
+	alias ssh-add='ssh-add --apple-use-keychain'
 fi
 
 # yabp: TODO

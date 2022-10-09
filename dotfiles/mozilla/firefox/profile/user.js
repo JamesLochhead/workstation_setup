@@ -144,7 +144,7 @@ user_pref("browser.search.update", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
 // always use private browsing
-user_pref("browser.privatebrowsing.autostart", true);
+user_pref("browser.privatebrowsing.autostart", false);
 
 // enable Cloudflare DNS over TLS
 user_pref("network.trr.mode", 5);
@@ -174,7 +174,7 @@ user_pref("places.history.enabled", false);
 user_pref("browser.formfill.enable", false);
 
 // clear history when Firefox closes
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 
 // clear downloads on shutdown
 user_pref("privacy.clearOnShutdown.downloads", true);
