@@ -1,3 +1,15 @@
+#!/usr/bin/env bash
+
+# Used by npm and pip for user-wide installs
+if ! [[ -d "$HOME/.local/bin" ]]; then
+	mkdir -p "$HOME/.local/bin"
+fi
+
+# Create Ruby Gem bin if it doesn't exist
+if [[ ! -d "$HOME/.gems/bin" ]]; then
+	mkdir -p "$HOME/.gems/bin"
+fi
+
 if [[ -f "$HOME/.bashrc" ]]; then
 	source "$HOME/.bashrc"
 fi

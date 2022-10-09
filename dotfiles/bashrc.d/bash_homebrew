@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# Activate Homebrew
+if [[ -d "/opt/homebrew-$(whoami)/bin" ]]; then
+	eval "$(/opt/homebrew-$(whoami)/bin/brew shellenv)"
+fi
+
+# Adapted from: https://github.com/darksonic37/linuxify/blob/master/.linuxify
+if [[ -d "/opt/homebrew-$(whoami)/bin" ]] && type brew &>/dev/null; then
+
+	BREW_HOME="$(brew --prefix)"
+
+	# Homebrew Bash completion
+	if [[ -r "${BREW_HOME}/etc/profile.d/bash_completion.sh" ]]; then
+		source "${BREW_HOME}/etc/profile.d/bash_completion.sh"
+	else
+		for COMPLETION in "${BREW_HOME}/etc/bash_completion.d/"*; do
+			[[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+		done
+	fi
+
+	# Add the Homebrew bin to PATH
+	export PATH="${BREW_HOME}/bin:$PATH"
+	export MANPATH="${BREW_HOME}/share/man:$MANPATH"
+	export INFOPATH="${BREW_HOME}/share/info:$INFOPATH"
+
+	# Make various applicatations default
+
+	# make
+	if command -v gmake &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/make/libexec/gnubin:$PATH"
+		export MANPATH="${BREW_HOME}/opt/make/libexec/gnuman:$MANPATH"
+	fi
+
+	# coreutils
+	if command -v gstat &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/coreutils/libexec/gnubin:$PATH"
+		export MANPATH="${BREW_HOME}/opt/coreutils/libexec/gnuman:$MANPATH"
+	fi
+
+	# grep
+	if command -v ggrep &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/grep/libexec/gnubin:$PATH"
+	fi
+
+	# find
+	if command -v gfind &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/findutils/libexec/gnubin:$PATH"
+	fi
+
+	# sed
+	if command -v gsed &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/gnu-sed/libexec/gnubin:$PATH"
+	fi
+
+	# tar
+	if command -v gtar &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/gnu-tar/libexec/gnubin:$PATH"
+	fi
+
+	# which
+	if command -v gwhich &>/dev/null; then
+		export PATH="${BREW_HOME}/opt/gnu-which/libexec/gnubin:$PATH"
+	fi
+
+	# unzip
+	if [[ -d "${BREW_HOME}/opt/unzip/bin:$PATH" ]]; then
+		export PATH="${BREW_HOME}/opt/unzip/bin:$PATH"
+	fi
+
+	# ruby
+	if [[ -d "${BREW_HOME}/bin/opt/ruby/bin" ]]; then
+		export PATH="${BREW_HOME}/opt/ruby/bin:$PATH"
+	fi
+
+	# python
+	if [[ -d "${BREW_HOME}/opt/python/libexec/bin" ]]; then
+		export PATH="${BREW_HOME}/opt/python/libexec/bin:$PATH"
+	fi
+fi
+
+# Install Casks to the home directory
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"

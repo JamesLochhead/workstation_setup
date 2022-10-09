@@ -1,0 +1,5 @@
+sts_decode() {
+	aws sts decode-authorization-message --encoded-message "$1" 2>&1 | jq ".DecodedMessage | fromjson" | fx
+}
+
+export -f sts_decode

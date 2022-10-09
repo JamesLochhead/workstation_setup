@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# fzf
+if command -v fzf &>/dev/null; then
+	if [[ -f "$WORKSTATION_SETUP/dotfiles/bash_completion/fzf-key-bindings.bash" ]]; then
+		source "$WORKSTATION_SETUP/dotfiles/bash_completion/fzf-key-bindings.bash"
+	else
+		echo "fzf keybinding file has moved"
+	fi
+fi
+
+# kubectl
+if command -v kubectl &>/dev/null; then
+	source <(kubectl completion bash)
+fi
+
+# Terraform
+if command -v terraform &>/dev/null; then
+	# Generated via: terraform -install-autocomplete
+	complete -C terraform terraform
+fi
+
+# Packer
+if command -v packer &>/dev/null; then
+	# Generated via: packer -autocomplete-install
+	complete -C packer packer
+fi
+
+# Vagrant
+if command -v vagrant &>/dev/null; then
+	if [[ -f "$WORKSTATION_SETUP/dotfiles/bash_completion/vagrant-bash-completion.sh" ]]; then
+		source "$WORKSTATION_SETUP/dotfiles/bash_completion/vagrant-bash-completion.sh"
+	else
+		echo "Vagrant completion is not installed"
+	fi
+fi
+
+# AWS SAM
+if command -v sam &>/dev/null; then
+	export SAM_CLI_TELEMETRY=0 # turn off telemetry
+	if [ -f "$WORKSTATION_SETUP/dotfiles/bash_completion/aws-sam-bash-completion.sh" ]; then
+		source "$WORKSTATION_SETUP/dotfiles/bash_completion/aws-sam-bash-completion.sh"
+	else
+		echo "AWS SAM is installed by the autocomplete is not in the expected location."
+	fi
+fi
+
+# sf-sso
+if command -v sf-sso &>/dev/null; then
+	source <(sf-sso completion bash)
+fi

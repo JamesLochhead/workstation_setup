@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias icloud='cd "$ICLOUD_HOME"'
+fi
+
+# yabp: TODO
+#alias g='cd "$(echo "$(realpath "$HOME"/Git/"$(ls "$HOME/Git" | fzf --tiebreak=end)")")" 2> /dev/null'
+#alias q='cd "$(echo $(find . -type d ! -path "*/.*" | fzf --tiebreak=end))" 2> /dev/null'
+# alias a='cd "$(echo "$(cat "/tmp/james/recent_dirs" | fzf --tiebreak=end)")" 2> /dev/null'
+# alias b='exclude=$(mktemp); grep -v "$(echo "$(cat "/tmp/james/recent_dirs" | fzf --tiebreak=end)")" /tmp/james/recent_dirs > $exclude; cat $exclude > /tmp/james/recent_dirs'
+# alias d='echo "$(pwd)" > /tmp/james/base_dir'
+
+
+# git
+alias gh='cd $(git rev-parse --show-toplevel)'
+alias gl="git log --oneline"
+
+# kubernetes
+alias kc='kubectl'
+
+# gpg
+alias gpg-lock="gpgconf --reload gpg-agent"
+
+# command reminders
+alias cr='cat "$WORKSTATION_SETUP"/command_reminders | fzf'
+alias cre='nvim -c $ +put_ +startinsert "$WORKSTATION_SETUP"/command_reminders'
+
+# sync workstation_setup iCloud to Git directory
+
+alias workstation_setup_sync='rsync -av --delete --exclude "*.git*" "$WORKSTATION_SETUP" "$HOME/Personal.Git"'
+
+# misc
+alias t='cd $(mktemp -d); export TMP_DIR=$(pwd)'
+
+# neovim
+if command -v nvim &>/dev/null; then
+	alias vi=nvim
+	alias vim=nvim
+fi
+alias init.vim="nvim ~/.config/nvim/init.vim"
+
+# yq
+# json to yaml
+alias jy="yq -P '.' "
+# yaml to json
+alias yj="yq -o=json '.' "
+
+# Basics
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias rm='rm -i'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi

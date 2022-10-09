@@ -3,6 +3,7 @@
 set -Eexuo pipefail
 
 DOT_FILES_REPO_PATH="$1"
+OVERWRITE="${2:-false}"
 
 main() {
 	create_symlink "$DOT_FILES_REPO_PATH/bashrc" "$HOME/.bashrc"
@@ -27,8 +28,13 @@ create_symlink() {
 	# $1 = the path where the symlink should point
 	# $2 = the path of the symlink
 
-	if [[ ! -L "$2" ]]; then
-		ln -sf "$1" "$2"
+	if [[ "$OVERWRITE" == false ]]; then
+		if [[ ! -L "$2" ]]; then
+			ln -s "$1" "$2"
+		fi
+	elif [[ "$OVERWRITE" == true ]]; then
+		rm -f "$2"
+		ln -s "$1" "$2"
 	fi
 }
 

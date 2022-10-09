@@ -2,17 +2,7 @@
 
 set -Eeuxo pipefail
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	TARGET_DIR="$HOME"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	DEVELOPMENT_HOME="/Users/Shared/$(whoami)"
-	mkdir -p \
-		"$DEVELOPMENT_HOME" \
-		"$HOME/Applications" \
-		"$DEVELOPMENT_HOME/.ssh"
-	chmod 700 "$DEVELOPMENT_HOME" "$DEVELOPMENT_HOME/.ssh" "$HOME/Applications"
-	TARGET_DIR="$DEVELOPMENT_HOME"
-fi
+TARGET_DIR="$HOME"
 
 PERSONAL_GIT_DIR="$TARGET_DIR/Personal.Git"
 WORK_GIT_DIR="$TARGET_DIR/Work.Git"
@@ -20,7 +10,6 @@ OTHER_GIT_DIR="$TARGET_DIR/Other.Git"
 BLOG_DIR="$PERSONAL_GIT_DIR/lochhead.me"
 SNIPPETS_DIR="$PERSONAL_GIT_DIR/workstation_setup/snippets"
 WORKSPACES_DIR="$PERSONAL_GIT_DIR/workspaces"
-PROMPT_DIR="$PERSONAL_GIT_DIR/Yet-Another-Bash-Prompt"
 DOTFILES_DIR="$PERSONAL_GIT_DIR/workstation_setup/dotfiles"
 WORKSTATION_SETUP_DIR="$PERSONAL_GIT_DIR/workstation_setup"
 
@@ -65,14 +54,13 @@ dotfiles() {
 }
 
 workstation_setup() {
-	clone_if_not_exists "$WORKSTATION_SETUP_DIR" "git@github.com:JamesLochhead/pc-setup_private.git"
+	clone_if_not_exists "$WORKSTATION_SETUP_DIR" "git@github.com:JamesLochhead/workstation_setup.git"
 }
-
 
 clone_if_not_exists() {
 
 	# $1 = the git repo path on the local filesystem
-	# $2 = the path to the remote git repo 
+	# $2 = the path to the remote git repo
 
 	if [[ ! -d "$1" ]]; then
 		cd "$PERSONAL_GIT_DIR" && git clone "$2"

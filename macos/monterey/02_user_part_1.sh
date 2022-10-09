@@ -44,7 +44,7 @@ setup_zshrc() {
 
 	# Install Casks to ~/Applications
 	echo 'export HOMEBREW_CASK_OPTS="--appdir=~/Applications"' >>"$HOME/.zshrc"
-	
+
 	# Add brew installed applications to PATH
 	echo -n 'export PATH=' >>"$HOME/.zshrc"
 	echo -n "$HOMEBREW_DIR/bin" >>"$HOME/.zshrc"
