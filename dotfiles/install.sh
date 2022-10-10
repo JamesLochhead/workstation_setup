@@ -21,10 +21,12 @@ main() {
 	create_symlink "$DOT_FILES_REPO_PATH/byobu/status" "$HOME/.byobu/status"
 	create_symlink "$DOT_FILES_REPO_PATH/gnupg/gpg.conf" "$HOME/.gnupg/gpg.conf"
 	create_symlink "$DOT_FILES_REPO_PATH/gnupg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	mkdir -p "$HOME/.config/git"
+	create_symlink "$DOT_FILES_REPO_PATH/config/git/allowed_signers" "$HOME/.config/git/allowed_signers"
 }
 
 create_symlink() {
-	
+
 	# $1 = the path where the symlink should point
 	# $2 = the path of the symlink
 
