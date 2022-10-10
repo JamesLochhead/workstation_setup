@@ -10,8 +10,10 @@ git_setup() {
 	fi
 	git config --global user.name "James Lochhead"
 	git config --global init.defaultBranch main
-	git config --global user.signingkey B098DF51A57627121177DC3C180AB694A7EF5FC0
+	git config --global user.signingkey 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFqn9bZMUVi8sUqN47D5JmAkSlo5YRfPM74Ky+FZUAp - ID: d55ffa50-c930-4170-b709-f07766db3d9e - Generated: 21-12-24'
+	git config --global gpg.format ssh
 	git config --global commit.gpgsign true
+	git config --global tag.gpgsign true
 	git config --global pull.rebase true
 	#git config --global pull.ff only
 	git config --global merge.tool vimdiff

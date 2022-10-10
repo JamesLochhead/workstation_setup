@@ -43,7 +43,7 @@ workspaces() {
 }
 
 workstation_setup() {
-	clone_if_not_exists "$WORKSTATION_SETUP" "git@github.com:JamesLochhead/workstation_setup.git"
+	clone_if_not_exists "$PERSONAL_GIT_DIR/workstation_setup" "git@github.com:JamesLochhead/workstation_setup.git"
 }
 
 clone_if_not_exists() {
