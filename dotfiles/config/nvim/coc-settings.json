@@ -1,6 +1,6 @@
 {
   "diagnostic.displayByAle": true,
-  "snippets.userSnippetsDirectory": "/home/james/Snippets",
+  "snippets.userSnippetsDirectory": "~/Snippets",
   "git.addGBlameToVirtualText": false,
   "languageserver": {
     "terraform": {

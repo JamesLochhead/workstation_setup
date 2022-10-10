@@ -17,6 +17,12 @@ fi
 alias gh='cd $(git rev-parse --show-toplevel)'
 alias gl="git log --oneline"
 
+# cd
+alias w='cd "$HOME/Work.Git"'
+alias p='cd "$HOME/Personal.Git"'
+alias o='cd "$HOME/Other.Git"'
+alias workstation_setup='cd "$WORKSTATION_SETUP"'
+
 # kubernetes
 alias kc='kubectl'
 

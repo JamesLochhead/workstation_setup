@@ -57,7 +57,6 @@ clone_if_not_exists() {
 }
 
 create_symlink() {
-
 	# $1 = the path where the symlink should point
 	# $2 = the path of the symlink
 

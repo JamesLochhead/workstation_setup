@@ -60,7 +60,9 @@ main() {
 		ripgrep \
 		readline \
 		terminal-notifier \
-		yq
+		yq \
+		pyright \
+		black
 
 	if [[ "$1" == "personal" ]]; then
 		brew install --cask \

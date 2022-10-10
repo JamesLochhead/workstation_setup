@@ -3,11 +3,11 @@
 set -Eeuxo pipefail
 
 git_setup() {
-    if [[ "$1" == "work" ]]; then
-	    git config --global user.email "james@scalefactory.com"
-    elif [[ "$1" == "personal" ]]; then
-	    git config --global user.email "james@lochhead.me"
-    fi
+	if [[ "$1" == "work" ]]; then
+		git config --global user.email "james@scalefactory.com"
+	elif [[ "$1" == "personal" ]]; then
+		git config --global user.email "james@lochhead.me"
+	fi
 	git config --global user.name "James Lochhead"
 	git config --global init.defaultBranch main
 	git config --global user.signingkey B098DF51A57627121177DC3C180AB694A7EF5FC0
