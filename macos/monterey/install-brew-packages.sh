@@ -61,7 +61,8 @@ main() {
 		terminal-notifier \
 		yq \
 		pyright \
-		black
+		black \
+		openssh
 
 	if [[ "$1" == "personal" ]]; then
 		brew install --cask \
