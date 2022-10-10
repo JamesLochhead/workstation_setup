@@ -12,7 +12,6 @@ main() {
 		iterm2 \
 		hyperkey \
 		coteditor \
-		vimr \
 		slack \
 		inkscape \
 		zoom \
