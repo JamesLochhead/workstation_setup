@@ -4,6 +4,9 @@ vim.opt.number = true
 vim.opt.termguicolors = false
 vim.cmd.colorscheme 'vim'
 vim.opt.list = true
+vim.opt.spelllang = 'en_gb'
+vim.opt.spell = true
+
 
 vim.opt.listchars:append {
 	tab = "| ",
