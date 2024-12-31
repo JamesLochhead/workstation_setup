@@ -47,12 +47,6 @@ git clone git@github.com:JamesLochhead/workstation_setup.git "$HOME/Config"
 stow --adopt dotfiles
 ```
 
-Set up Git:
-
-```
-bash git_setup.sh <EMAIL>
-```
-
 Make Bash the default shell:
 
 ```
