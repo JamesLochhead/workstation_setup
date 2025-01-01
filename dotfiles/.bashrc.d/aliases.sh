@@ -29,8 +29,3 @@ fi
 if command -v open_fzf_macos &>/dev/null; then
 	alias o=open_fzf_macos
 fi
-
-if command -v yq &>/dev/null; then
-	alias json2yaml="yq -P '.' "
-	alias yaml2json="yq -o=json '.' "
-fi
