@@ -34,6 +34,7 @@ make
 marksman
 neovim
 nodejs
+ollama
 openssh
 prettier
 pyenv
