@@ -7,6 +7,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
+alias g='git'
+alias h='history'
+alias k='kubectl'
+alias d='docker'
 
 if command -v dircolors &>/dev/null; then
 	alias ls='ls --color=auto'
@@ -18,7 +22,7 @@ if command -v nvim &>/dev/null; then
 	alias vim=nvim
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]] && [[ -f "$HOME/.ssh/id_ed25519" ]] ; then
+if [[ "$OSTYPE" == "darwin"* ]] && [[ -f "$HOME/.ssh/id_ed25519" ]]; then
 	alias ssh-add='/usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_ed25519'
 fi
 
