@@ -36,6 +36,7 @@ neovim
 nodejs
 ollama
 openssh
+poetry
 prettier
 pyenv
 python
@@ -50,6 +51,7 @@ shfmt
 sqlite
 starship
 stow
+stylua
 terminal-notifier
 terraform-lsp
 tfenv
