@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 			["lua"] = ":silent !stylua " .. current_file_abs_path,
 			["go"] = ":silent !go fmt " .. current_file_abs_path,
 			["sh"] = ":silent !shfmt -w " .. current_file_abs_path,
+			["markdown"] = ":silent !prettier -w " .. current_file_abs_path,
 		}
 		if fmt_mappings[vim.bo.filetype] ~= nil then
 			vim.cmd(fmt_mappings[vim.bo.filetype])
