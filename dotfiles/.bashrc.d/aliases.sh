@@ -21,6 +21,7 @@ fi
 if command -v nvim &>/dev/null; then
 	alias vi=nvim
 	alias vim=nvim
+	alias r='nvim $HOME/.reminders'
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]] && [[ -f "$HOME/.ssh/id_ed25519" ]]; then
