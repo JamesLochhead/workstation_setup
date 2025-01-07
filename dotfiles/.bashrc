@@ -13,6 +13,7 @@
 #	- Home directory
 # Git depends on Homebrew (for MacOS)
 # Home directory has no dependencies
+# Key bindings depend on Homebrew (for MacOS)
 
 bashrc_files=(
 	"$HOME/.bashrc.d/homebrew_macos.sh"
@@ -23,12 +24,13 @@ bashrc_files=(
 	"$HOME/.bashrc.d/home_directory.sh"
 	"$HOME/.bashrc.d/env_vars.sh"
 	"$HOME/.bashrc.d/git.sh"
+	"$HOME/.bashrc.d/key-bindings.sh"
 )
 
 for rc_file in ${bashrc_files[@]}; do
 	if [[ -f "$rc_file" ]]; then
 		source "$rc_file"
-  	fi
+	fi
 done
 
 # update terminal size
