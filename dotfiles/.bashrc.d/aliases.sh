@@ -11,6 +11,7 @@ alias g='git'
 alias h='history'
 alias k='kubectl'
 alias d='docker'
+alias tf='terraform'
 
 if command -v dircolors &>/dev/null; then
 	alias ls='ls --color=auto'
