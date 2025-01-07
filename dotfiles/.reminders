@@ -1,0 +1,26 @@
+## fzf
+
+- `CTRL-R` for history
+- `CTRL-T` for files
+- `ALT-C` for directories
+- `**<TAB>` for recursive search
+- `cd **<TAB>` to cd with fzf
+
+## fzf-git
+
+- `CTRL-G CTRL-F` for Files
+- `CTRL-G CTRL-B` for Branches
+- `CTRL-G CTRL-T` for Tags
+- `CTRL-G CTRL-R` for Remotes
+- `CTRL-G CTRL-H` for commit Hashes
+- `CTRL-G CTRL-S` for Stashes
+- `CTRL-G CTRL-L` for reflogs
+- `CTRL-G CTRL-W` for Worktrees
+- `CTRL-G CTRL-E` for Each ref (git for-each-ref)
+
+## New aliases
+
+- `f` find files with fzf
+- `n` find notes with fzf
+- `r` open reminders
+- `o` use open with fzf
