@@ -13,6 +13,14 @@ alias k='kubectl'
 alias d='docker'
 alias tf='terraform'
 
+if [[ -f "$HOME/.reminders.md" ]]; then
+	if command -v bat &>/dev/null; then
+		alias r='bat $HOME/.reminders.md --paging always'
+	else
+		alias r='less $HOME/.reminders.md --paging always'
+	fi
+fi
+
 if command -v dircolors &>/dev/null; then
 	alias ls='ls --color=auto'
 	alias grep='grep --color=auto'
@@ -21,7 +29,6 @@ fi
 if command -v nvim &>/dev/null; then
 	alias vi=nvim
 	alias vim=nvim
-	alias r='nvim $HOME/.reminders'
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]] && [[ -f "$HOME/.ssh/id_ed25519" ]]; then
