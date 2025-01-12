@@ -1,0 +1,15 @@
+* {
+  font-size: 12px !important;
+  font-weight: normal !important;
+  font-color: #70aaec !important;
+}
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+#personal-bookmarks .bookmark-item > .toolbarbutton-text {
+  padding: 3px 2px 3px 2px !important;
+}
+#personal-bookmarks .bookmark-item > .toolbarbutton-icon {
+  height: 14px !important;
+  width: 14px !important;
+}

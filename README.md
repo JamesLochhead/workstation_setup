@@ -28,12 +28,43 @@ Manually activate Homebrew in the shell:
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
+Fetch `brew_formulae_macos` and `brew_casks`:
+
+```
+curl -O \
+    https://raw.githubusercontent.com/JamesLochhead/workstation_setup/main/brew_formulae_macos
+curl -O \
+    https://raw.githubusercontent.com/JamesLochhead/workstation_setup/main/brew_casks
+```
+
 Install software using Homebrew:
 
 ```
 xargs brew install < brew_formulae_macos
 xargs brew install < brew_casks
 ```
+
+### Firefox
+
+Complete Firefox because dotfiles because we will need to overrite the files
+created.
+
+Make a profile directory:
+
+```
+mkdir "$HOME/.firefox_profile"
+```
+
+Make a new profile, set is as default, and point it to the directory above:
+
+```
+firefox -p # Linux
+/Applications/Firefox.app/Contents/MacOS/firefox -p # MacOS via brew
+```
+
+HINT: `Command+Shift+.` to show hidden files in the file picker on MacOS.
+
+### Dotfiles
 
 Clone this repository:
 
@@ -47,13 +78,15 @@ git clone git@github.com:JamesLochhead/workstation_setup.git "$HOME/Config"
 stow --adopt dotfiles
 ```
 
+### Bash
+
 Make Bash the default shell:
 
 ```
 # chsh -s "/opt/homebrew/bin/bash" "james"
 ```
 
-## Neovim additions
+### Neovim additions
 
 Install Copilot:
 
@@ -69,7 +102,7 @@ git clone https://github.com/neovim/nvim-lspconfig \
 ~/.config/nvim/pack/nvim/start/nvim-lspconfig
 ```
 
-## TextEdit
+### TextEdit
 
 - Set to plain text and turn off spell check.
 
