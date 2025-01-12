@@ -71,10 +71,19 @@ git clone https://github.com/neovim/nvim-lspconfig \
 
 ## TextEdit
 
-* Set to plain text and turn off spell check.
+- Set to plain text and turn off spell check.
 
-* Make clicking TextEdit icon in dock open a new document by default:
+- Make clicking TextEdit icon in dock open a new document by default:
 
 ```
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
 ```
+
+## Restore iTerm2 settings
+
+- Settings > General > Settings > Load preferences from a custom folder or URL
+
+- Point at the location where this was closed to (perhaps `~/Config`).
+
+- Don't symlink the preferences file, as iTerm2 doesn't support this and
+  changes will be lost.
