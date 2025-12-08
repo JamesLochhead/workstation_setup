@@ -18,16 +18,10 @@ vim.opt.listchars:append({
 	nbsp = "␣",
 })
 
-require("lspconfig").ruff.setup({})
-require("lspconfig").marksman.setup({})
-require("lspconfig").terraform_lsp.setup({})
+vim.lsp.enable("gopls")
+vim.lsp.enable("ruff")
+vim.lsp.enable("terraform_lsp")
+vim.lsp.enable("golangci_lint_ls")
 
 require("keymaps")
 require("autocmds")
-
--- Set options where there is not yet a Lua API
-
--- local settings = {
---   'set colorcolumn=80,100',
--- }
--- for _, setting in ipairs(settings) do vim.cmd(setting) end

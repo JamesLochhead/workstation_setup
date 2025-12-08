@@ -52,6 +52,10 @@ vim.api.nvim_set_keymap("n", "<Leader>yy", '"+yy', { noremap = true })
 vim.api.nvim_set_keymap("v", "<Leader>p", '"+p', { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>p", '"+p', { noremap = true })
 
+-- LSP
+
+vim.api.nvim_set_keymap("i", "<M-Tab>", "<C-x><C-o>", { noremap = true, silent = true })
+
 -- Kickstart
 
 -- Clear highlights on search when pressing <Esc> in normal mode
