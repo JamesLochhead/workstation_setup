@@ -18,6 +18,9 @@ gnu-sed
 gnu-tar
 gnu-which
 go
+golangci-lint
+golangci-lint-langserver
+gopls
 grep
 helix
 helm
