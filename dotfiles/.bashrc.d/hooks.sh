@@ -21,3 +21,7 @@ if command -v lesspipe &>/dev/null; then
 	# make less more friendly for non-text input files, see lesspipe(1)
 	eval "$(SHELL=/bin/sh lesspipe)"
 fi
+
+if command -v pyenv &>/dev/null; then
+	eval "$(pyenv init - bash)"
+fi
