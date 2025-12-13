@@ -6,6 +6,7 @@ coreutils
 cue
 diffutils
 docker
+eslint
 file-formula
 findutils
 fswatch
@@ -43,6 +44,7 @@ poetry
 prettier
 pyenv
 python
+pyright
 qemu
 readline
 remarshal
@@ -57,6 +59,7 @@ stow
 stylua
 terminal-notifier
 terraform-lsp
+typescript-language-server
 tfenv
 tmux
 tree
