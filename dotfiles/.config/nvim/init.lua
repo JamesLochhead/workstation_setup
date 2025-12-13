@@ -20,8 +20,22 @@ vim.opt.listchars:append({
 
 vim.lsp.enable("gopls")
 vim.lsp.enable("ruff")
+vim.lsp.enable("pyright")
 vim.lsp.enable("terraform_lsp")
 vim.lsp.enable("golangci_lint_ls")
+vim.lsp.enable("marksman")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("eslint")
+
+require("claude-code").setup()
+require("gitsigns").setup()
 
 require("keymaps")
 require("autocmds")
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
+	end,
+})
