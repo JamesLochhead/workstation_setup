@@ -88,18 +88,31 @@ Make Bash the default shell:
 
 ### Neovim additions
 
-Install Copilot:
-
-```
-git clone https://github.com/github/copilot.vim.git \
-  ~/.config/nvim/pack/github/start/copilot.vim
-```
-
 Install LSP config:
 
 ```
 git clone https://github.com/neovim/nvim-lspconfig \
 ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+```
+
+Install ClaudeCode:
+
+```
+mkdir -p ~/.local/share/nvim/site/pack/james/start
+
+git clone https://github.com/nvim-lua/plenary.nvim \
+~/.local/share/nvim/site/pack/james/start/plenary.nvim
+
+git clone https://github.com/greggh/claude-code.nvim \
+~/.local/share/nvim/site/pack/james/start/claude-code.nvim
+```
+
+Install Git signs:
+
+```
+mkdir -p ~/.local/share/nvim/site/pack/james/start
+git clone https://github.com/lewis6991/gitsigns.nvim \
+~/.local/share/nvim/site/pack/james/start/gitsigns.nvim
 ```
 
 ### TextEdit
